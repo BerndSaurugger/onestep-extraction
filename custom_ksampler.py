@@ -606,6 +606,7 @@ class StableDiffusionKDiffusionPipeline(DiffusionPipeline, TextualInversionLoade
             return noise_pred
 
         # 8. Run k-diffusion solver
+        sigmas = sigmas.to(latents.device)
         latents = self.sampler(model_fn, latents, sigmas)
         
         # 9. Post-processing

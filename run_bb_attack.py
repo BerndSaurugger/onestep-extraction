@@ -13,6 +13,7 @@ import pandas as pd
 import torch
 from huggingface_hub import snapshot_download, hf_hub_download
 from utils import processing_utils
+from utils.functions import prompt_to_folder
 
 
 @torch.no_grad()
@@ -68,7 +69,7 @@ def run_bb_attack(out_parquet_file, parquet_file=None,n_seeds=4,seed_offset=0,ma
         if verb:
             print(f'synthing caption {ci},{c}...')
         prompt=c
-        outfolder_prompt = prompt.replace('/','_')[:min(len(prompt),200)]
+        outfolder_prompt = prompt_to_folder(prompt, 200)
         os.makedirs(f'{outfolder}{outfolder_prompt}',exist_ok=True)
 
         imgs_out = []
