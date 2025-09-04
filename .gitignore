@@ -1,0 +1,22 @@
+# Ignore logs
+logs/
+
+# Ignore groundtruth parquet files
+groundtruth_parquets/
+
+# Ignore outputs
+output_combined_images/
+output_parquets/
+retrieved/
+gen_onestep/
+gen_synthall/
+templates/
+# VSCode
+.vscode/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Jupyter
+*.ipynb_checkpoints
